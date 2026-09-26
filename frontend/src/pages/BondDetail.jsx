@@ -1,9 +1,9 @@
-﻿import { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, Building2, CalendarClock, CalendarRange, CircleDollarSign, Percent } from 'lucide-react';
 import { api } from '../api';
 import { useApi } from '../useApi';
-import { date, money, MONEDAS, percent, relativeDays, riskTone } from '../format';
+import { date, money, percent, relativeDays, riskTone } from '../format';
 import { Badge, ErrorState, Progress, Skeleton } from '../components/ui';
 
 const FILTROS = ['Todos', 'Pendiente', 'Pagado'];
@@ -36,16 +36,16 @@ function DetailContent({ b }) {
         ['Tipo de bono', b.tipo],
         ['Tipo de interés', b.tipo_interes],
         ['Tasa de interés fija', `${percent(b.tasa_anual)} anual`],
-        ['Cupón trimestral', money(b.cupon_trimestral, b.moneda)],
-        ['Cupón anual estimado', money(b.cupon_anual, b.moneda)],
+        ['Cupón trimestral', money(b.cupon_trimestral)],
+        ['Cupón anual estimado', money(b.cupon_anual)],
         ['Frecuencia de pago', b.frecuencia_pago],
       ],
     },
     {
       titulo: 'Tu inversión', icon: CircleDollarSign, filas: [
-        ['Valor nominal', money(b.valor_nominal, b.moneda)],
-        ['Monto invertido', money(b.monto_invertido, b.moneda)],
-        ['Moneda', `${MONEDAS[b.moneda]} (${b.moneda})`],
+        ['Valor nominal', money(b.valor_nominal)],
+        ['Monto invertido', money(b.monto_invertido)],
+        ['Moneda', 'Dólares (USD)'],
         ['Fecha de compra', date(b.fecha_compra)],
       ],
     },
@@ -84,19 +84,19 @@ function DetailContent({ b }) {
       <div className="stat-grid">
         <div className="stat">
           <span className="stat-label">Cobrado a la fecha</span>
-          <strong>{money(cobrado, b.moneda)}</strong>
+          <strong>{money(cobrado)}</strong>
           <span className="small muted">{pagados.length} de {b.pagos.length} pagos</span>
         </div>
         <div className="stat">
           <span className="stat-label">Flujos pendientes</span>
-          <strong>{money(pendiente, b.moneda)}</strong>
+          <strong>{money(pendiente)}</strong>
           <span className="small muted">Incluye la devolución del capital</span>
         </div>
         <div className="stat stat-accent">
           <span className="stat-label"><CalendarClock size={15} /> Próximo pago</span>
           {proximo ? (
             <>
-              <strong>{money(proximoMonto, b.moneda)}</strong>
+              <strong>{money(proximoMonto)}</strong>
               <span className="small">{date(proximo.fecha)} · {relativeDays(proximo.fecha)}</span>
             </>
           ) : (
@@ -124,12 +124,12 @@ function DetailContent({ b }) {
         ))}
       </div>
 
-      <Schedule pagos={b.pagos} moneda={b.moneda} proximaFecha={proximo?.fecha} />
+      <Schedule pagos={b.pagos} proximaFecha={proximo?.fecha} />
     </>
   );
 }
 
-function Schedule({ pagos, moneda, proximaFecha }) {
+function Schedule({ pagos, proximaFecha }) {
   const [filtro, setFiltro] = useState(proximaFecha ? 'Pendiente' : 'Todos');
 
   const porAnio = useMemo(() => {
@@ -166,7 +166,7 @@ function Schedule({ pagos, moneda, proximaFecha }) {
           <div key={anio} className="schedule-year">
             <div className="schedule-year-head">
               <span>{anio}</span>
-              <span className="muted">{money(items.reduce((s, p) => s + p.monto, 0), moneda)}</span>
+              <span className="muted">{money(items.reduce((s, p) => s + p.monto, 0))}</span>
             </div>
             <ul>
               {items.map((p) => {
@@ -182,7 +182,7 @@ function Schedule({ pagos, moneda, proximaFecha }) {
                         {esProximo && ' · próximo pago'}
                       </span>
                     </div>
-                    <span className="pay-amount">{money(p.monto, moneda)}</span>
+                    <span className="pay-amount">{money(p.monto)}</span>
                     <Badge tone={p.estado === 'Pagado' ? 'success' : 'warning'}>{p.estado}</Badge>
                   </li>
                 );

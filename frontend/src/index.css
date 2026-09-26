@@ -387,29 +387,6 @@ dl, dd { margin: 0; }
 .demo-chips { display: flex; gap: 6px; }
 
 /* ---------- Dashboard ---------- */
-.segmented {
-  display: inline-flex;
-  gap: 4px;
-  padding: 4px;
-  margin-bottom: 16px;
-  border-radius: 999px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-.segmented button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border: 0;
-  border-radius: 999px;
-  background: none;
-  color: var(--text-2);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-.segmented button.active { background: var(--primary); color: #fff; }
-
 .hero-card {
   display: grid;
   grid-template-columns: 1.1fr 1.4fr 1fr;
@@ -630,8 +607,6 @@ a.bond-card:hover .bond-card-arrow { color: var(--primary); transform: translate
   .tab-link.active { color: var(--primary); background: var(--primary-50); }
 
   .hero-card { padding: 22px; border-radius: 20px; }
-  .segmented { display: flex; }
-  .segmented button { flex: 1; justify-content: center; }
   .filters, .search { width: 100%; }
   .search input { width: 100%; }
   .bond-grid { grid-template-columns: 1fr; }

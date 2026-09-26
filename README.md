@@ -60,7 +60,7 @@ Las funciones corren en `iad1` (Washington D.C.), la misma zona que la base de S
 |---|---|
 | `sp_obtener_credenciales(correo)` | Login: id y hash de contraseña |
 | `sp_obtener_cliente(id)` | Perfil del cliente |
-| `sp_resumen_cartera(cliente)` | Totales por moneda: invertido, cobrado, pendiente, próximo pago |
+| `sp_resumen_cartera(cliente)` | Totales de la cartera: invertido, cobrado, pendiente, próximo pago |
 | `sp_listar_bonos(cliente)` | Bonos del cliente con avance de pagos |
 | `sp_detalle_bono(cliente, bono)` | Ficha completa (solo si el bono es del cliente) |
 | `sp_calendario_pagos(cliente, bono)` | Cupones trimestrales y amortización, con estado Pagado/Pendiente |

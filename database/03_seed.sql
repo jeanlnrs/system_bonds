@@ -14,8 +14,8 @@ INSERT INTO emisores (nombre, ruc) VALUES
 INSERT INTO bonos (serie, nombre, numero_serie, sector, emisor_id, moneda, calificacion_riesgo, tasa_anual, fecha_emision, fecha_vencimiento) VALUES
     ('A', 'Bono Corporativo Serie A', 'SERIE-EDU-2024-A', 'Educación privada',        1, 'USD', 'A',    8.50, '2024-01-01', '2029-12-31'),
     ('B', 'Bono Corporativo Serie B', 'SERIE-MET-2023-B', 'Metales preciosos',        2, 'USD', 'BBB+', 9.75, '2023-01-01', '2028-12-31'),
-    ('C', 'Bono Corporativo Serie C', 'SERIE-INF-2025-C', 'Infraestructura privada',  3, 'PEN', 'A-',   7.25, '2025-01-01', '2028-12-31'),
-    ('D', 'Bono Corporativo Serie D', 'SERIE-SAL-2024-D', 'Salud privada',            4, 'PEN', 'AA-',  6.80, '2024-07-01', '2030-06-30'),
+    ('C', 'Bono Corporativo Serie C', 'SERIE-INF-2025-C', 'Infraestructura privada',  3, 'USD', 'A-',   7.25, '2025-01-01', '2028-12-31'),
+    ('D', 'Bono Corporativo Serie D', 'SERIE-SAL-2024-D', 'Salud privada',            4, 'USD', 'AA-',  6.80, '2024-07-01', '2030-06-30'),
     ('E', 'Bono Corporativo Serie E', 'SERIE-ENE-2025-E', 'Energía renovable',        5, 'USD', 'A+',   7.90, '2025-04-01', '2031-03-31'),
     ('F', 'Bono Corporativo Serie F', 'SERIE-AGR-2021-F', 'Agroindustria',            6, 'USD', 'BBB',  10.25, '2021-01-01', '2025-12-31');
 

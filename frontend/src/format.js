@@ -1,12 +1,9 @@
-const SIMBOLOS = { USD: 'US$', PEN: 'S/' };
-
 const numero = new Intl.NumberFormat('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-export function money(value, moneda) {
-  return `${SIMBOLOS[moneda] ?? moneda} ${numero.format(value ?? 0)}`;
+// Todos los montos de la plataforma están en dólares
+export function money(value) {
+  return `US$ ${numero.format(value ?? 0)}`;
 }
-
-export const MONEDAS = { USD: 'Dólares', PEN: 'Soles' };
 
 // Las fechas llegan como 'YYYY-MM-DD'; se interpretan en hora local para no desplazar el día
 function parse(iso) {

@@ -33,7 +33,7 @@ CREATE TABLE bonos (
     tipo                VARCHAR(60)   NOT NULL DEFAULT 'Bono corporativo privado',
     sector              VARCHAR(60)   NOT NULL,
     emisor_id           INT           NOT NULL REFERENCES emisores(id),
-    moneda              CHAR(3)       NOT NULL CHECK (moneda IN ('USD', 'PEN')),
+    moneda              CHAR(3)       NOT NULL DEFAULT 'USD' CHECK (moneda = 'USD'),
     calificacion_riesgo VARCHAR(5)    NOT NULL,
     tipo_interes        VARCHAR(10)   NOT NULL DEFAULT 'Fijo',
     tasa_anual          NUMERIC(5,2)  NOT NULL CHECK (tasa_anual > 0),

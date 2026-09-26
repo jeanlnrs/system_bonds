@@ -129,7 +129,7 @@ $$;
 --  Cartera
 -- -------------------------------------------------------------
 
--- Resumen de la cartera, una fila por moneda (no se mezclan USD y PEN)
+-- Resumen de la cartera (todos los bonos están en USD, así que devuelve una sola fila)
 CREATE OR REPLACE FUNCTION sp_resumen_cartera(p_cliente_id INT)
 RETURNS TABLE (
     moneda             CHAR(3),
