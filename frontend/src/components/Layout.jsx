@@ -14,7 +14,9 @@ export default function Layout() {
   const { pathname } = useLocation();
 
   // Cada pantalla nueva empieza desde arriba
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="app">
