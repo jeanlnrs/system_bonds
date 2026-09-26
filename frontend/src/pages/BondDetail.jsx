@@ -43,7 +43,6 @@ function DetailContent({ b }) {
     },
     {
       titulo: 'Tu inversión', icon: CircleDollarSign, filas: [
-        ['Valor nominal', money(b.valor_nominal)],
         ['Monto invertido', money(b.monto_invertido)],
         ['Moneda', 'Dólares (USD)'],
         ['Fecha de compra', date(b.fecha_compra)],
@@ -59,7 +58,7 @@ function DetailContent({ b }) {
     {
       titulo: 'Emisor', icon: Building2, filas: [
         ['Razón social', b.emisor],
-        ['RUC', b.emisor_ruc],
+        ['Serie', b.numero_serie],
         ['Sector / destino', b.sector],
         ['Calificación de riesgo', b.calificacion_riesgo],
       ],
