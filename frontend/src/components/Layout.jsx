@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Landmark, LayoutGrid, LogOut, UserRound } from 'lucide-react';
 import { useAuth } from '../auth';
 
@@ -10,6 +11,10 @@ const NAV = [
 export default function Layout() {
   const { cliente, logout } = useAuth();
   const iniciales = `${cliente.nombres[0]}${cliente.apellidos[0]}`;
+  const { pathname } = useLocation();
+
+  // Cada pantalla nueva empieza desde arriba
+  useEffect(() => window.scrollTo(0, 0), [pathname]);
 
   return (
     <div className="app">
